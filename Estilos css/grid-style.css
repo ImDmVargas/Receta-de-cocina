@@ -5,7 +5,7 @@ body{
 .container{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto 1fr 1fr 1fr 1fr;
     background-color: #fff;
     grid-gap: 10px;
     color: #444;
@@ -21,7 +21,7 @@ body{
     align-items: center;
 }
 .box{
-    background-color: #444;
+    background-color:rgb(54, 126, 220);
     color:#fff;
     border-radius: 5px;
     padding: 20px;
