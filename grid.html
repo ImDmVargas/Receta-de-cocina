@@ -10,11 +10,27 @@
 <body>
 <div  class="container">
     <header class="box header">
-        <h1 id="Inicio">Lazaña Original</h1>
-        <img src="/Imagenes/LAZAÑAORIGINAL.jpg" alt="LAZAÑA ORIGINAL" width="400px" height="400px" >
+        <div class="carousel-container">
+            <div class="carousel">
+                <div class="carousel-slide">
+                    <img src="/Imagenes/CH_Fotos_Lasaña-sin-horno_1400x700.jpg" alt="Imagen 1">
+                </div>
+                <div class="carousel-slide">
+                    <img src="/Imagenes/LAZAÑAORIGINAL.jpg" alt="Imagen 2">
+                </div>
+                <div class="carousel-slide">
+                    <img src="/Imagenes/lasana-de-carne-con-verduras.jpg" alt="Imagen 3">
+                </div>
+            </div>
+            <button id="prevBtn">Anterior</button>
+            <button id="nextBtn">Siguiente</button>
+        </div>
+        <div class="header-text">
+            <h1>Lazaña Original</h1>
+        </div>
     </header>
     <article class="box Article">
-        <h1>Utensilios</h1>
+        <h1 >Utensilios</h1>
         <ul>
             <li>Bandeja</li>
             <ul>
@@ -123,5 +139,38 @@
     </footer>
 
 </div>
+
+<script>
+    const carousel = document.querySelector(".carousel");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+  
+    let slideIndex = 0;
+  
+    function showSlide(index) {
+      if (index < 0) {
+        slideIndex = carousel.children.length - 1;
+      } else if (index >= carousel.children.length) {
+        slideIndex = 0;
+      }
+  
+      const slideWidth = carousel.clientWidth;
+      carousel.style.transform = `translateX(-${slideIndex * slideWidth}px)`;
+    }
+  
+    prevBtn.addEventListener("click", () => {
+      slideIndex--;
+      showSlide(slideIndex);
+    });
+  
+    nextBtn.addEventListener("click", () => {
+      slideIndex++;
+      showSlide(slideIndex);
+    });
+  
+    // Inicialmente, muestra el primer slide
+    showSlide(slideIndex);
+  </script>
+  
 </body>
 </html>
